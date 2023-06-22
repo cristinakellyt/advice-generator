@@ -3,7 +3,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: './src/app.ts',
+  entry: './src/app.js',
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'assets', 'dist'),
@@ -34,18 +34,13 @@ module.exports = {
         },
       },
       {
-        test: /\.tsx?$/,
-        use: ['ts-loader'],
-        exclude: /node_modules/,
-      },
-      {
         test: /\.scss$/,
         use: ['style-loader', 'css-loader', 'sass-loader'],
       },
     ],
   },
   resolve: {
-    extensions: ['.tsx', '.ts', '.js'],
+    extensions: ['.js'],
   },
   plugins: [
     new CleanWebpackPlugin({
