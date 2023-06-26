@@ -2,7 +2,7 @@
   "name": "advice-generator-app-main",
   "version": "1.0.0",
   "description": "![Design preview for the Advice generator app coding challenge](./design/desktop-preview.jpg)",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "build-app": "webpack --config webpack.production.config.js",
     "dev": "webpack serve --config webpack.dev.config.js --hot"

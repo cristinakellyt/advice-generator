@@ -8,7 +8,7 @@ module.exports = {
   entry: './src/app.js',
   output: {
     filename: 'bundle.[contenthash].js',
-    path: path.resolve(__dirname, 'assets', 'dist'),
+    path: path.resolve(__dirname, 'dist'),
     publicPath: '',
   },
   mode: 'production',
@@ -44,7 +44,7 @@ module.exports = {
       template: 'src/index.html',
     }),
     new CopyPlugin({
-      patterns: [{ from: 'src/images', to: '' }],
+      patterns: [{ from: 'assets/images', to: '' }],
     }),
   ],
 };
