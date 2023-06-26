@@ -2,12 +2,13 @@ const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = {
-  entry: './src/app.ts',
+  entry: './src/app.js',
   output: {
     filename: 'bundle.[contenthash].js',
-    path: path.resolve(__dirname, 'assets', 'dist'),
+    path: path.resolve(__dirname, 'dist'),
     publicPath: '',
   },
   mode: 'production',
@@ -27,15 +28,10 @@ module.exports = {
           },
         },
       },
-      {
-        test: /\.tsx?$/,
-        use: ['ts-loader'],
-        exclude: /node_modules/,
-      },
     ],
   },
   resolve: {
-    extensions: ['.tsx', '.ts', '.js'],
+    extensions: ['.js'],
   },
   plugins: [
     new CleanWebpackPlugin({
@@ -46,6 +42,9 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       template: 'src/index.html',
+    }),
+    new CopyPlugin({
+      patterns: [{ from: 'assets/images', to: '' }],
     }),
   ],
 };

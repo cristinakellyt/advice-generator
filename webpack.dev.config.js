@@ -1,12 +1,13 @@
 const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = {
-  entry: './src/app.ts',
+  entry: './src/app.js',
   output: {
     filename: 'bundle.js',
-    path: path.resolve(__dirname, 'assets', 'dist'),
+    path: path.resolve(__dirname, 'dist'),
     publicPath: '',
   },
   devtool: 'cheap-module-source-map',
@@ -14,7 +15,7 @@ module.exports = {
   devServer: {
     port: 9000,
     static: {
-      directory: path.resolve(__dirname, 'assets', 'dist'),
+      directory: path.resolve(__dirname, 'dist'),
     },
     devMiddleware: {
       index: 'index.html',
@@ -34,18 +35,13 @@ module.exports = {
         },
       },
       {
-        test: /\.tsx?$/,
-        use: ['ts-loader'],
-        exclude: /node_modules/,
-      },
-      {
         test: /\.scss$/,
         use: ['style-loader', 'css-loader', 'sass-loader'],
       },
     ],
   },
   resolve: {
-    extensions: ['.tsx', '.ts', '.js'],
+    extensions: ['.js'],
   },
   plugins: [
     new CleanWebpackPlugin({
@@ -53,6 +49,9 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       template: 'src/index.html',
+    }),
+    new CopyPlugin({
+      patterns: [{ from: 'assets/images', to: '' }],
     }),
   ],
 };
