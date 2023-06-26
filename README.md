@@ -33,7 +33,7 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
+- Solution URL: [https://www.frontendmentor.io/solutions/advice-generator-using-vanilla-javascript-scss-and-axios-TopcdyRAKp](https://www.frontendmentor.io/solutions/advice-generator-using-vanilla-javascript-scss-and-axios-TopcdyRAKp)
 - Live Site URL: [https://zk-advice-generator.netlify.app/](https://zk-advice-generator.netlify.app/)
 
 ## My process
